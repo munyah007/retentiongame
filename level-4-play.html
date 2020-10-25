@@ -1,0 +1,271 @@
+<html><body>
+<head> 
+{% script "/js/d3-source.js" %}</head>
+
+<body>
+
+
+<h1><em> Welcome to level 4 of the Retention game </em></h1>
+
+
+ <form id='submitter'  action='http://localhost:3000/results-4'  method='get'>
+ <input id='correct' type='hidden' name='correcto' value='correct'/>
+  <input id='chosen' type='hidden' name='played' value='chosen'/>
+    </form>
+
+
+
+<h2> Play </h2>
+
+ <div>
+<button id="play" ><em>Play</em></button>
+
+<button id="results" ><em>Results</em></button>
+
+</div>
+<div>
+ <svg id="current" width="100" height="100" >
+  <rect x="0" y="0" width="100" height="100" fill="blue" stroke="yellow" strokewidth="5"></rect>
+  </svg>
+</div>
+
+<div  width="1000" height="1000" style="text-align:center">
+ <svg id="playg" width="1000" height="1000">
+ </svg> </div>
+
+<script type="text/javascript">
+  
+   let gridRecs  = [[0 ,0], [200 , 0 ], [400 , 0], [ 600 , 0], [ 800 , 0], [0, 200], [200, 200], [400, 200], [600, 200
+], [800, 200], [0 , 400], [200 , 400], [400 ,400], [600 , 400], [800 ,400], [0 ,600], 
+[200, 600], [400, 600], [600, 600], [800, 600], [0, 800], [200, 800], [400, 800], [600, 800], [800 ,800]];
+
+let identities =  [ "A" , "B" , "C" , "D" , "E" , "F" , "G" ,"H" , "I" , "J" , "K" ,"L" , "M" , "N" , "O" ,"P" , "Q" , "R" , "S" , "T" , "U" , "V", "W" , "X" ,"Y" ];
+
+
+
+ let ReqCoords  =  {{ required }}; 
+
+  
+     let playedSet = {{  played     }}; 
+
+     
+
+    var    clickedPoints = [];
+
+  
+   let canv  =  d3.select("#playg");
+   let  curr =  d3.select("#current");
+   let trigger = document.getElementById("play");
+
+
+
+
+  
+
+canv.selectAll("rect").data( gridRecs ).enter().append("rect")
+                            .attr( "x"  , function(d , i ){ return d[0]; }).attr( "y"  , function(d , i ){ return d[1]; })
+                            .attr( "width" , "200" ).attr("height" , "200").attr("stroke-width" , "4").attr("stroke" , "red").attr("class" , "loc")
+                    .attr("fill" , "blue");
+
+canv.selectAll(".ids").data( identities ).enter().append("text")
+                            .attr( "x"  , function(d , i ){ return ((gridRecs[i])[0]); }).attr( "y"  , function(d , i ){ return (((gridRecs[i])[1]) + 50); })
+                             .text(function(d , i ){ return d; }).style("font-size" , "48").attr("class" , "ids");
+
+  // updates all clicked points to the clicked point array
+ d3.select("#playg")
+      .on("dblclick", function(){
+         // Get x & y co-ordinates
+         let point =  d3.mouse(this);
+         clickedPoints.push(point);
+      });
+  
+
+    // triggers the play 
+    trigger.addEventListener("click" , shower , false ); 
+   
+    function shower(){
+   
+       curr.append("text").attr("x" , "0").attr("y" , "100").style("font-size" , "95").text( playedSet[19]).attr("class" ,"displayer");
+      let  t = d3.transition()
+                 .duration(3000).delay(3000)
+              .ease(d3.easeLinear);
+     
+      let  t2 = d3.transition()
+                 .duration(3000).delay(6000)
+              .ease(d3.easeLinear);
+    
+         let  t3 = d3.transition()
+                 .duration(3000).delay(9000)
+              .ease(d3.easeLinear);
+   
+        let  t4 = d3.transition()
+                 .duration(3000).delay(12000)
+              .ease(d3.easeLinear);
+        
+          let  t5 = d3.transition().delay(15000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+     
+          let  t6 = d3.transition().delay(18000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+      
+     let  t7 = d3.transition().delay(21000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+    
+    let  t8 = d3.transition().delay(24000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+    
+       let  t9 = d3.transition().delay(27000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+
+         let  t10 = d3.transition().delay(30000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+         
+     let  t11 = d3.transition().delay(33000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+    
+    let  t12 = d3.transition().delay(36000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+    
+       let  t13 = d3.transition().delay(39000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+
+         let  t14 = d3.transition().delay(42000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+       
+         let  t15 = d3.transition().delay(45000)
+                 .duration(3000)
+                    .ease(d3.easeLinear);
+
+
+
+
+         let  t16 = d3.transition().delay(48000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+         
+     let  t17 = d3.transition().delay(51000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+    
+    let  t18 = d3.transition().delay(54000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+    
+       let  t19 = d3.transition().delay(57000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+
+         let  t20 = d3.transition().delay(60000)
+                 .duration(3000)
+              .ease(d3.easeLinear);
+       
+         let  t21 = d3.transition().delay(63000)
+                 .duration(3000)
+                    .ease(d3.easeLinear);
+
+
+
+
+
+
+
+
+                  d3.selectAll(".displayer").transition(t)
+                        .text(( playedSet[18]));
+
+                   d3.selectAll(".displayer").transition(t2)
+                        .text(( playedSet[17]));
+           
+                    d3.selectAll(".displayer").transition(t3)
+                        .text(( playedSet[16]));
+        
+                      d3.selectAll(".displayer").transition(t4)
+                        .text(( playedSet[15]));
+                       d3.selectAll(".displayer").transition(t5)
+                        .text(( playedSet[14]));
+
+                   d3.selectAll(".displayer").transition(t6)
+                        .text(( playedSet[13]));
+           
+                    d3.selectAll(".displayer").transition(t7)
+                        .text(( playedSet[12]));
+        
+                      d3.selectAll(".displayer").transition(t8)
+                        .text(( playedSet[11])) ;                     
+                         
+                       d3.selectAll(".displayer").transition(t9)
+                        .text(( playedSet[10]));             
+                
+                            d3.selectAll(".displayer").transition(t10)
+                        .text(( playedSet[9]));
+        
+                      d3.selectAll(".displayer").transition(t11)
+                        .text(( playedSet[8]));
+                       d3.selectAll(".displayer").transition(t12)
+                        .text(( playedSet[7]));
+
+                   d3.selectAll(".displayer").transition(t13)
+                        .text(( playedSet[6]));
+           
+                    d3.selectAll(".displayer").transition(t14)
+                        .text(( playedSet[5]));
+
+
+
+                       d3.selectAll(".displayer").transition(t15)
+                        .text(( playedSet[4]));
+        
+                      d3.selectAll(".displayer").transition(t16)
+                        .text(( playedSet[3]));
+                       d3.selectAll(".displayer").transition(t17)
+                        .text(( playedSet[2]));
+
+                   d3.selectAll(".displayer").transition(t18)
+                        .text(( playedSet[1]));
+           
+                    d3.selectAll(".displayer").transition(t19)
+                        .text(( playedSet[0]));
+              
+                    d3.selectAll(".displayer").transition(t20)
+                        .text("Done");
+        
+                     
+                       
+                ;}  
+                      
+   let res =  document.getElementById("results");
+      let cor = document.getElementById("correct");
+   let chos = document.getElementById("chosen");
+   let delBoy = document.getElementById("submitter"); 
+
+res.addEventListener('click' , disp , false );
+ 
+ function disp(){
+     cor.value =   JSON.stringify(ReqCoords) ;
+    chos.value =  JSON.stringify(clickedPoints);
+    delBoy.submit(); }
+    
+
+  
+                      
+                      
+
+       
+   
+  
+
+
+</script>
+
+</body>
+</html>

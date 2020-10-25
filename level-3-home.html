@@ -1,0 +1,67 @@
+<html><body>
+<head> 
+{% script "/js/d3-source.js" %} </head>
+
+<body>
+
+
+<h1><em> Welcome to level 3 of the Retention game </em></h1>
+
+
+
+<div width="1200" height="1200" style="text-align:center">
+ <svg width="1000" height="1000">
+ 
+
+   
+   
+             </svg></div>
+  
+
+
+
+ <form id='submitter'  action='http://localhost:3000/play-lev-3'  method='get'>
+ <input type="submit" value="Play" />
+    </form>
+
+
+
+
+<script type="text/javascript">
+let gameEl =  {{gameEls}}; 
+   
+ let  distC = {{distC}};
+ 
+  let canv  =  d3.select("svg");
+
+let identities =  [ "A" , "B" , "C" , "D" , "E" , "F" , "G" ,"H" , "I" , "J" , "K" ,"L" , "M" , "N" , "O" ,"P" , "Q" , "R" , "S" , "T" , "U" , "V", "W" , "X" ,"Y" ];
+
+ let gridRecs  = [[0 ,0], [200 , 0 ], [400 , 0], [ 600 , 0], [ 800 , 0], [0, 200], [200, 200], [400, 200], [600, 200
+], [800, 200], [0 , 400], [200 , 400], [400 ,400], [600 , 400], [800 ,400], [0 ,600], 
+[200, 600], [400, 600], [600, 600], [800, 600], [0, 800], [200, 800], [400, 800], [600, 800], [800 ,800]];
+
+canv.selectAll("rect").data( gridRecs ).enter().append("rect")
+                            .attr( "x"  , function(d , i ){ return d[0]; }).attr( "y"  , function(d , i ){ return d[1]; })
+                            .attr( "width" , "200" ).attr("height" , "200").attr("stroke-width" , "4").attr("stroke" , "red").attr("class" , "loc").attr("fill" , "blue");
+
+canv.selectAll("text").data( identities ).enter().append("text")
+                            .attr( "x"  , function(d , i ){ return ((gridRecs[i])[0]); }).attr( "y"  , function(d , i ){ return (((gridRecs[i])[1]) + 50); })
+                             .text(function(d , i ){ return d; }).style("font-size" , "48");
+                            
+
+
+
+   
+
+ canv.selectAll(".gameEls").data(gameEl).enter().append("text").text( function(d){ return d[0];})
+                            .attr( "x"  , function(d , i ){ return ((distC[i])[0]); }).attr( "y"  , function(d , i ){ return ((distC[i])[1]); })
+                            .style("font-size" , "100").attr("class" , "gameEls");
+
+
+
+ 
+</script>
+
+
+</body>
+</html>
